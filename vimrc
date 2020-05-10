@@ -12,8 +12,10 @@ set foldlevel=99
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 set colorcolumn=120
 
-let g:used_javascript_libs = 'underscore,chai'
-let g:ycm_seed_identifiers_with_syntax = 1
+"let g:used_javascript_libs = 'underscore,chai'
+let g:ycm_seed_identifiers_with_syntax = 0
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
 
 " put key remapping here
 nnoremap gh :tabp<CR>
@@ -22,6 +24,9 @@ nnoremap <silent> gj :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> gk :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 noremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-p> :CtrlP<CR>
+nnoremap gq :YcmCompleter GoTo<CR>
+nnoremap gw :YcmCompleter GetType<CR>
+nnoremap ge :YcmCompleter GoToReferences<CR>
 
 let notabs = 0
 nnoremap <silent> <F8> :let notabs=!notabs<Bar>:if notabs<Bar>:tabo<Bar>:else<Bar>:tab ball<Bar>:tabn<Bar>:endif<CR>
@@ -31,9 +36,9 @@ set statusline+=col:\%c
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" Plug 'jelera/vim-javascript-syntax'
+Plug 'hashivim/vim-terraform'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'ctrlpvim/ctrlp.vim', {'on': ['CtrlP', 'CtrlPMixed', 'CtrlPMRU']}
