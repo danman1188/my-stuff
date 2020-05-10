@@ -20,7 +20,7 @@
     trustExitCode = true
 	keepBackup = false
 [alias]
-    ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s &Cgreen(%cr) %C(bold blue)<%an >> %cn>%Creset' --abbrev-commit
+    ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an >> %cn>%Creset' --abbrev-commit
     hide = update-index --assume-unchanged
     unhide = update-index --no-assume-unchanged
     sst = status -sb
